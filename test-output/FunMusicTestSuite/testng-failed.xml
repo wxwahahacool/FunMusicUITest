@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [FunMusicTestSuite]">
+  <listeners>
+    <listener class-name="com.ylss.listener.TestNGListener"/>
+  </listeners>
+  <test thread-count="1" name="FunMusicTest" parallel="classes">
+    <classes>
+      <class name="com.ylss.test.LoginTest"/>
+      <class name="com.ylss.test.SimpleTest"/>
+    </classes>
+  </test> <!-- FunMusicTest -->
+  <test name="FunMusicTest(failed)" parallel="classes">
+    <classes>
+      <class name="com.ylss.test.LoginTest">
+        <methods>
+          <include name="loginOut"/>
+          <include name="setUp"/>
+          <include name="loginIn"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.ylss.test.LoginTest -->
+    </classes>
+  </test> <!-- FunMusicTest(failed) -->
+</suite> <!-- Failed suite [FunMusicTestSuite] -->

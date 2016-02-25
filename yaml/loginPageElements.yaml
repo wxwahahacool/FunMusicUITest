@@ -1,0 +1,24 @@
+meButton: 
+  type:name
+  value:我
+labelIsNotLogin: 
+  type:name
+  value:未登录
+userName:  
+  type:xpath
+  value:"//UIATextField['邮箱 ／ 用户名']"
+passWord:   
+  type:xpath
+  value:"//UIASecureTextField['密码']"
+loginSubmit: 
+  type:xpath
+  value:"//UIAButton[1]"
+labelIsLogin:
+  type:xpath
+  value:"//UIATableView[2]/UIAStaticText[1]"
+sideBar:
+  type:name
+  value:navigationbar sidebar
+logout:
+  type:name
+  value:注销登录
