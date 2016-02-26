@@ -4,7 +4,6 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 
 import java.util.HashMap;
-import java.util.List;
 
 import com.ylss.utils.BaseOperate;
 import com.ylss.utils.YamlFileDirector;

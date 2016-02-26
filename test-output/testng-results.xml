@@ -2,26 +2,26 @@
 <testng-results skipped="0" failed="1" total="3" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="FunMusicTestSuite" duration-ms="48438" started-at="2016-02-26T06:02:51Z" finished-at="2016-02-26T06:03:40Z">
+  <suite name="FunMusicTestSuite" duration-ms="49862" started-at="2016-02-26T10:17:33Z" finished-at="2016-02-26T10:18:23Z">
     <groups>
     </groups>
-    <test name="FunMusicTest" duration-ms="48438" started-at="2016-02-26T06:02:51Z" finished-at="2016-02-26T06:03:40Z">
+    <test name="FunMusicTest" duration-ms="49862" started-at="2016-02-26T10:17:33Z" finished-at="2016-02-26T10:18:23Z">
       <class name="com.ylss.test.SimpleTest">
-        <test-method status="PASS" signature="test()[pri:0, instance:com.ylss.test.SimpleTest@22f71333]" name="test" duration-ms="5223" started-at="2016-02-26T14:03:19Z" finished-at="2016-02-26T14:03:25Z">
+        <test-method status="PASS" signature="test()[pri:0, instance:com.ylss.test.SimpleTest@22f71333]" name="test" duration-ms="5611" started-at="2016-02-26T18:18:02Z" finished-at="2016-02-26T18:18:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
       </class> <!-- com.ylss.test.SimpleTest -->
       <class name="com.ylss.test.LoginTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.ylss.test.LoginTest@6cd8737]" name="setUp" is-config="true" duration-ms="13652" started-at="2016-02-26T14:02:38Z" finished-at="2016-02-26T14:02:51Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.ylss.test.LoginTest@6cd8737]" name="setUp" is-config="true" duration-ms="25884" started-at="2016-02-26T18:17:07Z" finished-at="2016-02-26T18:17:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginIn()[pri:0, instance:com.ylss.test.LoginTest@6cd8737]" name="loginIn" duration-ms="28004" started-at="2016-02-26T14:02:51Z" finished-at="2016-02-26T14:03:19Z">
+        <test-method status="PASS" signature="loginIn()[pri:0, instance:com.ylss.test.LoginTest@6cd8737]" name="loginIn" duration-ms="29094" started-at="2016-02-26T18:17:33Z" finished-at="2016-02-26T18:18:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginIn -->
-        <test-method status="FAIL" signature="loginOut()[pri:0, instance:com.ylss.test.LoginTest@6cd8737]" name="loginOut" duration-ms="12857" started-at="2016-02-26T14:03:25Z" depends-on-methods="com.ylss.test.LoginTest.loginIn" finished-at="2016-02-26T14:03:37Z">
+        <test-method status="FAIL" signature="loginOut()[pri:0, instance:com.ylss.test.LoginTest@6cd8737]" name="loginOut" duration-ms="12627" started-at="2016-02-26T18:18:08Z" depends-on-methods="com.ylss.test.LoginTest.loginIn" finished-at="2016-02-26T18:18:21Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [true] but found [false]]]>
@@ -54,7 +54,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginOut -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ylss.test.LoginTest@6cd8737]" name="tearDown" is-config="true" duration-ms="1032" started-at="2016-02-26T14:03:40Z" finished-at="2016-02-26T14:03:41Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ylss.test.LoginTest@6cd8737]" name="tearDown" is-config="true" duration-ms="944" started-at="2016-02-26T18:18:24Z" finished-at="2016-02-26T18:18:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
