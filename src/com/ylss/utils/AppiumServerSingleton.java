@@ -22,37 +22,41 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 
-
-public class AppiumServer {
-
+public class AppiumServerSingleton {
 	private IOSDriver<IOSElement> iosDriver;
-	private AppiumDriverLocalService service;
-
-	public IOSDriver<IOSElement> getDriver() {
-		
-        return iosDriver;
-        
-    }
+	private  AppiumDriverLocalService service;
+	private static AppiumServerSingleton single;
 	
-	public AppiumDriverLocalService startAppium() {
-		
-		stopAppiumByShell();
-		
-		service = AppiumDriverLocalService
-				.buildService(new AppiumServiceBuilder()
-						.usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
-						.withAppiumJS(
-								new File(
-										"/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js"))
-						.withIPAddress("127.0.0.1").usingPort(4723).withArgument(GeneralServerFlag.LOG_LEVEL, "debug")
-		                .withArgument(GeneralServerFlag.COMMAND_TIMEOUT, "60"));
-		
-
-		service.start();
-		return service;
+	public AppiumServerSingleton(){
+		this.service = startAppium();
+		this.iosDriver = startDriver(service);
 	}
 	
-	public IOSDriver<IOSElement> startDriver(AppiumDriverLocalService service) {
+	public IOSDriver<IOSElement> getIosDriver() {
+		return iosDriver;
+	}
+
+	public void setIosDriver(IOSDriver<IOSElement> iosDriver) {
+		this.iosDriver = iosDriver;
+	}
+
+	public AppiumDriverLocalService getService() {
+		return service;
+	}
+
+	public void setService(AppiumDriverLocalService service) {
+		this.service = service;
+	}
+
+
+	public static synchronized AppiumServerSingleton getInstance() {  
+        if (single == null) {    
+            single = new AppiumServerSingleton();  
+        }    
+       return single;  
+} 
+	
+private IOSDriver<IOSElement> startDriver(AppiumDriverLocalService service) {
 		
 		if (service == null || !service.isRunning())
             throw new RuntimeException("An appium server node is not started!");
@@ -73,6 +77,23 @@ public class AppiumServer {
 		iosDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return iosDriver;
 		
+	}
+	
+	private AppiumDriverLocalService startAppium() {
+		
+		stopAppiumByShell();
+		service = AppiumDriverLocalService
+				.buildService(new AppiumServiceBuilder()
+						.usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
+						.withAppiumJS(
+								new File(
+										"/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js"))
+						.withIPAddress("127.0.0.1").usingPort(4723).withArgument(GeneralServerFlag.LOG_LEVEL, "debug")
+		                .withArgument(GeneralServerFlag.COMMAND_TIMEOUT, "60"));
+		
+
+		service.start();
+		return service;
 	}
 	
 	public void stopAppium(AppiumDriverLocalService service) {

@@ -4,6 +4,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.ylss.utils.BaseOperate;
 import com.ylss.utils.YamlFileDirector;
@@ -60,6 +61,12 @@ public class LoginAction {
 		
 		bo.getElement("meButton").click();
 		bo.getElements("labelIsNotLogin").get(1).click();
+//		List<IOSElement> elements = bo.getElements("labelIsNotLogin");
+//		for(IOSElement element:elements){
+//			if(element.isDisplayed()){
+//				element.click();
+//			}
+//		}
 		
 	}
 	

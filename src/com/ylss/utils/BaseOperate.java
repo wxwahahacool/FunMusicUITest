@@ -16,18 +16,23 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseOperate { 
 	@iOSFindBy(name = "我")
+	@CacheLookup
 	private WebElement UIAButtonMe;
 	@iOSFindBy(name = "userDefaultImage")
+	@CacheLookup
 	private WebElement UIAImageMe;
 	@iOSFindBy(name = "navigationbar sidebar")
+	@CacheLookup
 	private WebElement UIAButtonSideBar;
 	@iOSFindBy(name = "未登录")
+	@CacheLookup
 	private WebElement UIALabel;
 	
 	

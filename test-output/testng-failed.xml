@@ -3,6 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [FunMusicTestSuite]">
   <listeners>
     <listener class-name="com.ylss.listener.TestNGListener"/>
+    <listener class-name="com.ylss.listener.PowerEmailableReporter"/>
   </listeners>
   <test thread-count="1" name="FunMusicTest" parallel="classes">
     <classes>

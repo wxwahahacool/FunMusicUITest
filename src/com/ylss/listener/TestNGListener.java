@@ -13,8 +13,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
-import com.ylss.utils.AppiumServer;
-import com.ylss.utils.Common;
+import com.ylss.utils.AppiumServerSingleton;
 
 
 public class TestNGListener extends TestListenerAdapter {
@@ -40,10 +39,11 @@ public class TestNGListener extends TestListenerAdapter {
 
 	private void takeScreenShot(ITestResult tr) {
 		
-		AppiumServer as = (AppiumServer) tr.getInstance();
+//		AppiumServer as = (AppiumServer) tr.getInstance();
+		
 //        IOSDriver<IOSElement> currentDirver = as.getDriver();
-		IOSDriver<IOSElement> currentDirver = Common.iosDriver;
-        as.takeScreenshot(currentDirver,getMethodName(tr.getMethod().toString()));
+		IOSDriver<IOSElement> currentDirver = AppiumServerSingleton.getInstance().getIosDriver();;
+		AppiumServerSingleton.getInstance().takeScreenshot(currentDirver,getMethodName(tr.getMethod().toString()));
 
     }
 	

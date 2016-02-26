@@ -1,25 +1,29 @@
 package com.ylss.test;
 
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import com.ylss.action.LoginAction;
-import com.ylss.utils.AppiumServer;
-import com.ylss.utils.Common;
+import com.ylss.utils.AppiumServerSingleton;
 
 
-public class LoginTest extends AppiumServer {
+public class LoginTest {
 
 	LoginAction la;
-
+	IOSDriver<IOSElement> iosDriver = null;
+	AppiumDriverLocalService service = null;
 	
 	@BeforeSuite
 	public void setUp() {
-		
-		System.out.println("this is beforesuit");
-		la = new LoginAction(Common.iosDriver);
+		System.out.println("this is before");
+		iosDriver = AppiumServerSingleton.getInstance().getIosDriver();
+		la = new LoginAction(iosDriver);
 		
 	}
 	
@@ -46,10 +50,9 @@ public class LoginTest extends AppiumServer {
 
 	@AfterSuite
 	public void tearDown() {
-		
-		System.out.println("this is aftersuit");
-		new AppiumServer().stopDriver(Common.iosDriver);
-		new AppiumServer().stopAppium(Common.service);
+		System.out.println("this is after");
+		AppiumServerSingleton.getInstance().stopDriver(iosDriver);
+		AppiumServerSingleton.getInstance().stopAppium(service);
 
 	}
 

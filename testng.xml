@@ -2,6 +2,7 @@
 <suite name="FunMusicTestSuite">
 	<listeners>
    		<listener class-name="com.ylss.listener.TestNGListener" />
+   		<listener class-name="com.ylss.listener.PowerEmailableReporter" />
  	</listeners>  	
     <test name="FunMusicTest" parallel="classes" thread-count="1">
 		<classes>
