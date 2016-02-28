@@ -5,9 +5,12 @@ import io.appium.java_client.ios.IOSElement;
 
 import java.util.HashMap;
 
+import org.openqa.selenium.support.PageFactory;
+
 import com.ylss.utils.BaseOperate;
 import com.ylss.utils.YamlFileDirector;
 import com.ylss.utils.YamlReader;
+
 
 public class LoginAction {
 	
@@ -17,6 +20,7 @@ public class LoginAction {
 	public LoginAction(IOSDriver<IOSElement> iosDriver){
 		
 		bo = new BaseOperate(iosDriver, ymlLogin);
+		PageFactory.initElements(iosDriver, this);
 		
 	}
 	
